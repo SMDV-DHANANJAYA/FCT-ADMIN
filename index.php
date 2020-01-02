@@ -29,13 +29,13 @@
             <div class="wrap-login100 default">
                 <div class="login">
                     <form action="index.php" method="POST" class="login100-form validate-form">
-					<span class="login100-form-logo">
-						<i class="fas fa-user-lock"></i>
-					</span>
+                        <span class="login100-form-logo">
+                            <i class="fas fa-user-lock"></i>
+                        </span>
 
                         <span class="login100-form-title p-b-34 p-t-27">
 						Log In
-					</span>
+					    </span>
 
                         <div class="wrap-input100 validate-input" data-validate = "Enter username">
                             <input class="input100" type="text" name="username" placeholder="Username">
@@ -73,7 +73,34 @@
                         </div>
                     </form>
                 </div>
-			</div>
+                <div class="forgot_pass">
+                    <form action="index.php" method="POST" class="login100-form validate-form">
+                        <span class="login100-form-logo">
+                            <i class="fas fa-user-edit"></i>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+						    Forgot Password
+					    </span>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Enter email">
+                            <input class="input100" type="email" name="eail" placeholder="Email">
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" name="reset" class="login100-form-btn">
+                                RESET
+                            </button>
+                        </div>
+
+                        <div class="text-center mt-3 text-white">OR |
+                            <a class="txt1 sign-in" id="logIn_ForgotPass" style="cursor: pointer;">
+                                LOG IN
+                            </a>
+                        </div>
+                    </form>
+                </div>
 		</div>
 	</div>
 
