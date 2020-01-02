@@ -101,6 +101,43 @@
                         </div>
                     </form>
                 </div>
+                <div class="signin">
+                    <form action="index.php" method="POST" class="login100-form validate-form">
+                        <span class="login100-form-logo">
+                            <i class="fas fa-user-plus"></i>
+                        </span>
+
+                        <span class="login100-form-title p-b-34 p-t-27">
+						    Sign In
+					    </span>
+
+                        <div class="wrap-input100 validate-input" data-validate = "Enter username">
+                            <input class="input100" type="text" name="username" placeholder="Username">
+                            <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Enter password">
+                            <input class="input100" type="password" name="password" placeholder="Password">
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input" data-validate="Re enter password">
+                            <input class="input100" type="password" name="repeat_password" placeholder="Re Enter Your Password">
+                            <span class="focus-input100" data-placeholder="&#xf191;"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn">
+                            <button type="submit" name="signin" class="login100-form-btn">
+                                SIGN IN
+                            </button>
+                        </div>
+
+                        <div class="text-center mt-3 text-white">OR |
+                            <a class="txt1 sign-in" id="logIn_SignIn" style="cursor: pointer;">
+                                LOG IN
+                            </a>
+                        </div>
+                </div>
 		</div>
 	</div>
 
