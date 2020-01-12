@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="../assets/css/material-dashboard.min.css?v=2.1.1" rel="stylesheet" />
+    <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="../assets/js/core/bootstrap-material-design.min.js" type="text/javascript"></script>
+    <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <!--  Google Maps Plugin    -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+    <!-- Chartist JS -->
+    <script src="../assets/js/plugins/chartist.min.js"></script>
+    <!--  Notifications Plugin    -->
+    <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+    <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="../assets/js/material-dashboard.js?v=2.1.1" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<button class="btn btn-primary" onclick="showNotification('top','right')">Top Right Notification</button>
+
+</body>
+<script>
+    function showNotification(from, align){
+
+        $.notify({
+            message: "Welcome to <b>Material Dashboard Pro</b> - a beautiful freebie for every web developer."
+
+        },{
+            type: 'info',
+            timer: 4000,
+            placement: {
+                from: from,
+                align: align
+            }
+        });
+    }
+</script>
+</html>

@@ -28,7 +28,7 @@
             <div class="col-6 mr-auto ml-auto text-center py-5 mt-5">
                 <div class="card">
                     <div class="card-body shadow">
-                        <h1 class="error mx-auto card-title" data-text="404">404</h1>
+                        <h1 class="error mx-auto card-title m" data-text="404">404</h1>
                         <p class="lead text-gray-800 mb-5 card-title">Page Not Found</p>
                         <a href="Dashboard/dashboard.php" class="btn btn-primary">&larr; Back to Dashboard</a>
                     </div>

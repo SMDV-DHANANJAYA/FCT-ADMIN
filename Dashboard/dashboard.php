@@ -1,3 +1,21 @@
+<?php
+    require_once('../inc/connection.php');
+    session_start();
+
+    if (!isset($_SESSION["stnum"])){
+        header("location: ../index.php");
+    }
+
+    if (isset($_GET["logout"]) && ($_GET["logout"]) == "true"){
+        $sql = "UPDATE student_details SET STATE=0 WHERE STUDENT_NUMBER='{$_SESSION['stnum']}'";
+        $result = mysqli_query($connection,$sql);
+        if ($result){
+            session_unset();
+            session_destroy();
+            header("location: ../index.php");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +27,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>FCT ADMIN</title>
+    <title>FCT ADMIN - DASHBOARD</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -23,9 +41,17 @@
 
     <!-- Custom styles for all page (override)-->
     <link href="css/custom_main.css" rel="stylesheet">
+
+    <style>
+        .bg-gradient-primary {
+            background-color: #9152f8;
+            background-image: linear-gradient(180deg, #7579ff 10%, #b224ef 100%);
+            background-size: cover;
+        }
+    </style>
 </head>
 
-<body id="page-top"">
+<body id="page-top">
     <!-- Page Wrapper -->
     <div id="wrapper">
         <!-- Sidebar -->
@@ -57,26 +83,32 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="dashboard.php?page=Profile" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     <i class="fas fa-fw fa-user"></i>
                     <span>Profile</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Admin Components:</h6>
-                        <a class="collapse-item" href="dashboard.php?page=admin profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Admin Profile</a>
+                        <h6 class="collapse-header">User Components:</h6>
+                        <a class="collapse-item" href="dashboard.php?page=profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My Profile</a>
                         <a class="collapse-item" href="dashboard.php?page=add user"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>Add Users</a>
-                        <a class="collapse-item" href="dashboard.php?page=delete user"><i class="fas fa-user-slash fa-sm fa-fw mr-2 text-gray-400"></i>Delete Users</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item filter-table">
-                <a class="nav-link collapsed filters" href="dashboard.php?page=filters">
+                <a class="nav-link collapsed filters" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Filters</span>
                 </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">User Components:</h6>
+                        <a class="collapse-item" href="dashboard.php?page=basic filter"><i class="fas fa-table fa-sm fa-fw mr-2 text-gray-400"></i>Basic Filter</a>
+                        <a class="collapse-item" href="dashboard.php?page=advance filter"><i class="fas fa-tablet-alt fa-sm fa-fw mr-2 text-gray-400"></i>Advance Filter</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -117,7 +149,7 @@
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top shadow" style="z-index: 9999;">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -207,69 +239,13 @@
                             </div>
                         </li>
 
-                        <!-- Nav Item - Messages -->
-                        <li class="nav-item dropdown no-arrow mx-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-envelope fa-fw"></i>
-                                <!-- Counter - Messages -->
-                                <span class="badge badge-danger badge-counter">7</span>
-                            </a>
-                            <!-- Dropdown - Messages -->
-                            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-                                <h6 class="dropdown-header">
-                                    Message Center
-                                </h6>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div class="font-weight-bold">
-                                        <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been having.</div>
-                                        <div class="small text-gray-500">Emily Fowler · 58m</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                                        <div class="status-indicator"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">I have the photos that you ordered last month, how would you like them sent to you?</div>
-                                        <div class="small text-gray-500">Jae Chun · 1d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                                        <div class="status-indicator bg-warning"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Last month's report looks great, I am very happy with the progress so far, keep up the good work!</div>
-                                        <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item d-flex align-items-center" href="#">
-                                    <div class="dropdown-list-image mr-3">
-                                        <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                                        <div class="status-indicator bg-success"></div>
-                                    </div>
-                                    <div>
-                                        <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people say this to all dogs, even if they aren't good...</div>
-                                        <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                                    </div>
-                                </a>
-                                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-                            </div>
-                        </li>
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Administrator</span>
-                                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php if (isset($_SESSION["userName"])){ echo $_SESSION["userName"]; }?></span>
+                                <img class="img-profile rounded-circle" src="img/user.png">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -301,7 +277,7 @@
                         if (isset($_GET['page']) && $_GET['page'] == 'dashboard'){
                             require_once('inc/dashboard_content.php');
                         }
-                        elseif (isset($_GET['page']) && $_GET['page'] == 'filters'){
+                        elseif (isset($_GET['page']) && $_GET['page'] == 'basic filter'){
                             require_once('inc/data_table.php');
                         }
                         elseif (isset($_GET['page']) && $_GET['page'] == 'student_result'){
@@ -352,7 +328,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="remove_items/login.html">Logout</a>
+                    <a class="btn btn-primary" href="dashboard.php?logout=true">Logout</a>
                 </div>
             </div>
         </div>
@@ -374,18 +350,18 @@
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-pie-demo.js"></script>
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/charts/chart-pie-demo.js"></script>
+    <script src="js/charts/chart-area-demo.js"></script>
+    <script src="js/charts/datatables-demo.js"></script>
 </body>
 <script>
     $(document).ready(function(){
         //hide filter option
-        if($(window).width() <= 720){
+        if($(window).width() <= 1060){
             $(".filter-table").hide();
         }
 
-        //show advance filter
+        /*//show advance filter
         $("#advance_btn").click(function(){
             $("#basic_filter").slideUp(1000);
             $("#advance_filter").slideDown(1000);
@@ -395,7 +371,18 @@
         $("#basic_btn").click(function(){
             $("#advance_filter").slideUp(1000);
             $("#basic_filter").slideDown(1000);
-        });
+        });*/
+
+        //get data from server
+        /*$("#get-data").click(function () {
+            $.ajax({
+                url: 'php/getdata.php',
+                type: 'POST',
+                success:function (responsedata) {
+                    $("#tbody-data").html(responsedata);
+                }
+            });
+        });*/
     });
 </script>
 </html>
