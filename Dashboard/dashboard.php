@@ -12,6 +12,13 @@
         if ($result){
             session_unset();
             session_destroy();
+            mysqli_close($connection);
+            header("location: ../index.php");
+        }
+        else{
+            session_unset();
+            session_destroy();
+            mysqli_close($connection);
             header("location: ../index.php");
         }
     }

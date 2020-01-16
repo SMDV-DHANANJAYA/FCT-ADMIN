@@ -1,4 +1,4 @@
-<!-- Button trigger modal-->
+ Button trigger modal-->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalConfirmDelete">Launch
     modal</button>
 
@@ -29,4 +29,4 @@
         <!--/.Content-->
     </div>
 </div>
-<!--Modal: modalConfirmDelete-->
+<!--Modal: modalConfirmDelete
