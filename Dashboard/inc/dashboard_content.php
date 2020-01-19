@@ -145,8 +145,8 @@
     </div>
 </div>
 <script>
-    setInterval(data,5000);
-    function data() {
+    setInterval(onlineUsers,5000);
+    function onlineUsers() {
         var ajax = new XMLHttpRequest();
         var method = "GET";
         var url = "inc/getData.php?type=online";

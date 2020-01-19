@@ -3,8 +3,8 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 // Pie Chart Example
-setInterval(data,5000);
-function data() {
+setInterval(getCount,5000);
+function getCount() {
   var ajax = new XMLHttpRequest();
   var method = "GET";
   var url = "inc/getData.php?type=count";
@@ -22,9 +22,9 @@ function data() {
 }
 
 function displayChart(data) {
-  var ct = parseInt(data[1].NUMBER);
-  var et = parseInt(data[2].NUMBER);
-  var cs = parseInt(data[0].NUMBER);
+  var ct = data[1].NUMBER;
+  var et = data[2].NUMBER;
+  var cs = data[0].NUMBER;
 
   document.getElementById("ct").innerHTML = ct;
   document.getElementById("et").innerHTML = et;

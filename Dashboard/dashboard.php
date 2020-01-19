@@ -1,5 +1,5 @@
 <?php
-    require_once('../inc/connection.php');
+    require_once('../inc/php/connection.php');
     session_start();
 
     if (!isset($_SESSION["stnum"])){
@@ -38,6 +38,7 @@
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -98,7 +99,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Components:</h6>
                         <a class="collapse-item" href="dashboard.php?page=profile"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>My Profile</a>
-                        <a class="collapse-item" href="dashboard.php?page=add user"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>Add Users</a>
+                        <a class="collapse-item" href="dashboard.php?page=add user" id="advance_filter_btn"><i class="fas fa-user-plus fa-sm fa-fw mr-2 text-gray-400"></i>Add Users</a>
                     </div>
                 </div>
             </li>
@@ -112,8 +113,8 @@
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">User Components:</h6>
-                        <a class="collapse-item" href="dashboard.php?page=basic filter"><i class="fas fa-table fa-sm fa-fw mr-2 text-gray-400"></i>Basic Filter</a>
-                        <a class="collapse-item" href="dashboard.php?page=advance filter"><i class="fas fa-tablet-alt fa-sm fa-fw mr-2 text-gray-400"></i>Advance Filter</a>
+                        <a class="collapse-item" href="dashboard.php?page=basic_filter"><i class="fas fa-table fa-sm fa-fw mr-2 text-gray-400"></i>Basic Filter</a>
+                        <a class="collapse-item" href="dashboard.php?page=advance_filter"><i class="fas fa-tablet-alt fa-sm fa-fw mr-2 text-gray-400"></i>Advance Filter</a>
                     </div>
                 </div>
             </li>
@@ -284,11 +285,14 @@
                         if (isset($_GET['page']) && $_GET['page'] == 'dashboard'){
                             require_once('inc/dashboard_content.php');
                         }
-                        elseif (isset($_GET['page']) && $_GET['page'] == 'basic filter'){
+                        elseif (isset($_GET['page']) && ($_GET['page'] == 'basic_filter' || $_GET['page'] == 'advance_filter')){
                             require_once('inc/data_table.php');
                         }
                         elseif (isset($_GET['page']) && $_GET['page'] == 'student_result'){
                             require_once('inc/student_result.php');
+                        }
+                        elseif (isset($_GET['page']) && $_GET['page'] == 'cal'){
+                            require_once('inc/cal.php');
                         }
                         else{
                             require_once('inc/dashboard_content.php');
@@ -364,7 +368,7 @@
 <script>
     $(document).ready(function(){
         //hide filter option
-        if($(window).width() <= 1060){
+        if($(window).width() <= 1141){
             $(".filter-table").hide();
         }
 

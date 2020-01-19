@@ -15,7 +15,7 @@
                         <th>DEPARTMENT</th>
                         <th>EMAIL</th>
                         <th>SEX</th>
-                        <th>OPTIONS</th>
+                        <th class="text-center">ACTION</th>
                     </tr>
                 </thead>
                 <tfoot>
@@ -25,30 +25,32 @@
                         <th>DEPARTMENT</th>
                         <th>EMAIL</th>
                         <th>SEX</th>
-                        <th>OPTIONS</th>
+                        <th class="text-center">ACTION</th>
                     </tr>
                 </tfoot>
-                <tbody id="tbody-data">
-                    <?php
-                        $query = "SELECT STUDENT_NUMBER,ACADEMIC_YEAR,DEPARTMENT,EMAIL,SEX FROM student_details ORDER BY ACADEMIC_YEAR ASC;";
-                        $sql = mysqli_query($connection,$query);
-                        if ($sql){
-                            $tbody = "";
-                            while ($result = mysqli_fetch_assoc($sql)){
-                                $tbody .= "<tr>";
-                                $tbody .= "<td>{$result['STUDENT_NUMBER']}</td>";
-                                $tbody .= "<td>{$result['ACADEMIC_YEAR']}</td>";
-                                $tbody .= "<td>{$result['DEPARTMENT']}</td>";
-                                $tbody .= "<td>{$result['EMAIL']}</td>";
-                                $tbody .= "<td>{$result['SEX']}</td>";
-                                $tbody .= "<td><a href=\"dashboard.php?page=filters&stnum={$result['STUDENT_NUMBER']}\">D</a>&nbsp;<a href=\"dashboard.php?page=filters&stnum={$result['STUDENT_NUMBER']}\">E</a></td>";
-                                $tbody .= "</tr>";
-                            }
-                            echo $tbody;
-                        }
-                        ?>
-                </tbody>
             </table>
         </div>
     </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="advanceModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>This is a large modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#advanceModal").modal();
+</script>

@@ -1,5 +1,5 @@
 <?php
-    require_once("inc/connection.php");
+    require_once("inc/php/connection.php");
     session_start();
 
     if (isset($_GET["login"]) && ($_GET["login"] == "true")){
@@ -74,7 +74,7 @@
                         <span class="login100-form-title p-b-34 p-t-27">
 						Log In
 					    </span>
-
+                        <div id="login-error"></div>
                         <div class="wrap-input100 validate-input" data-validate = "Enter username">
                             <input class="input100" type="text" id="stnum-log" placeholder="Student Number" value="<?php
                             if(isset($_COOKIE["userDetails"])){
@@ -129,7 +129,7 @@
                         <span class="login100-form-title p-b-34 p-t-27">
 						    Forgot Password
 					    </span>
-
+                        <div id="forgot-error"></div>
                         <div class="wrap-input100 validate-input" data-validate = "Enter NIC Number">
                             <input class="input100" type="text" id="nic" placeholder="NIC Number">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -167,7 +167,7 @@
                         <span class="login100-form-title p-b-34 p-t-27">
 						    Sign In
 					    </span>
-
+                        <div id="signup-error"></div>
                         <div class="wrap-input100 validate-input" data-validate = "Enter Student Number">
                             <input class="input100" type="text" id="stnum-sign" placeholder="Student Number">
                             <span class="focus-input100" data-placeholder="&#xf207;"></span>
@@ -231,27 +231,32 @@
                                             window.location = link;
                                         }
                                         else{
-                                            console.log("User Already Log in");
+                                            var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> User Already Log in.</div>";
+                                            document.getElementById("login-error").innerHTML = msg;
                                         }
                                     }
                                     else{
-                                        console.log("Invalid Password");
+                                        var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Invalid Password.</div>";
+                                        document.getElementById("login-error").innerHTML = msg;
                                     }
                                 }
                                 else{
-                                    console.log("wrong stnumber");
+                                    var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Wrong Student Number.</div>";
+                                    document.getElementById("login-error").innerHTML = msg;
                                 }
                             }
                         }
                     }
                     else{
-                        console.log("Invalid Student Number Type");
+                        var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Wrong Student Number Type.</div>";
+                        document.getElementById("login-error").innerHTML = msg;
                     }
                 }
                 else if(data == "forgot-pass"){
                     var nic = document.getElementById("nic").value.toUpperCase();
                     if (/\s/.test(nic)){
-                        console.log("Invalid NIC NUMBER");
+                        var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Invalid Nic Number Type.</div>";
+                        document.getElementById("forgot-error").innerHTML = msg;
                     }
                     else{
                         var pass = document.getElementById("forgot-password").value;
@@ -277,7 +282,8 @@
                             }
                         }
                         else{
-                            console.log("Password Not Match");
+                            var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Password Not Match.</div>";
+                            document.getElementById("forgot-error").innerHTML = msg;
                         }
                     }
                 }
@@ -309,7 +315,8 @@
                         }
                     }
                     else{
-                        console.log("Invalid Student Number Type");
+                        var msg = "<div class='alert alert-danger alert-dismissible fade show mb-5'><a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><strong>Error!</strong> Invalid Student Number Type.</div>";
+                        document.getElementById("signup-error").innerHTML = msg;
                     }
                 }
             }

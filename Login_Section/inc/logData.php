@@ -1,5 +1,5 @@
 <?php
-    require_once('../../inc/connection.php');
+    require_once('../../inc/php/connection.php');
     if ($_GET["datatype"] == "login") {
         $sql = "SELECT STUDENT_NUMBER,NAME,PASSWORD,STATE FROM student_details WHERE STUDENT_NUMBER='{$_GET['stnum']}'";
         $result = mysqli_query($connection, $sql);
