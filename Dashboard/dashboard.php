@@ -80,7 +80,8 @@
             <li class="nav-item active">
                 <a class="nav-link" href="dashboard.php?page=dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
+                    <span>Dashboard</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -105,18 +106,11 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item filter-table">
-                <a class="nav-link collapsed filters" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <li class="nav-item active">
+                <a class="nav-link collapsed filters" href="dashboard.php?page=filter">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Filters</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">User Components:</h6>
-                        <a class="collapse-item" href="dashboard.php?page=basic_filter"><i class="fas fa-table fa-sm fa-fw mr-2 text-gray-400"></i>Basic Filter</a>
-                        <a class="collapse-item" href="dashboard.php?page=advance_filter"><i class="fas fa-tablet-alt fa-sm fa-fw mr-2 text-gray-400"></i>Advance Filter</a>
-                    </div>
-                </div>
             </li>
 
             <!-- Divider -->
@@ -285,7 +279,7 @@
                         if (isset($_GET['page']) && $_GET['page'] == 'dashboard'){
                             require_once('inc/dashboard_content.php');
                         }
-                        elseif (isset($_GET['page']) && ($_GET['page'] == 'basic_filter' || $_GET['page'] == 'advance_filter')){
+                        elseif (isset($_GET['page']) && $_GET['page'] == 'filter'){
                             require_once('inc/data_table.php');
                         }
                         elseif (isset($_GET['page']) && $_GET['page'] == 'student_result'){
