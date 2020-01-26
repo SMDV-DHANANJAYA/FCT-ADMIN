@@ -16,8 +16,8 @@
         $result = mysqli_query($connection,$sql);
         $data = array();
         while($row = mysqli_fetch_assoc($result)){
-            $row["ACTION"] = "<button class='btn btn-outline-success btn-sm mr-3' id='btn-edit' data-id-edit='{$row['STUDENT_NUMBER']}'><span class='fa fa-edit'></span></button> 
-                              <button class='btn btn-outline-danger btn-sm' id='btn-delete' data-id-delete='{$row['STUDENT_NUMBER']}'><span class='fa fa-trash'></span></button>";
+            $row["ACTION"] = "<button class='btn btn-outline-success btn-sm mr-3' id='btn-edit' data-id-edit='{$row['STUDENT_NUMBER']}'><span class='fa fa-edit'></span></button>";
+            $row["ACTION"] .= "<button class='btn btn-outline-danger btn-sm' id='btn-delete' data-id-delete='{$row['STUDENT_NUMBER']}'><span class='fa fa-trash'></span></button>";
             $data[] = $row;
         }
         echo json_encode($data);

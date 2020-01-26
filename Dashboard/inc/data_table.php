@@ -1,6 +1,9 @@
 <!--Basic Filter Options -->
 <div class="container-fluid border bg-gradient-primary mb-3 pt-3 pb-3">
     <span class="lead text-white">Basic Details About Students</span>
+    <button class='btn btn-outline-light btn-sm float-right' data-toggle="modal" data-target="#advanceModal">
+        <span class='fa fa-table'></span>
+    </button>
 </div>
 
 <!-- DataTales Example -->
@@ -52,5 +55,5 @@
 </div>
 
 <script>
-    $("#advanceModal").modal();
+    /*$("#advanceModal").modal();*/
 </script>

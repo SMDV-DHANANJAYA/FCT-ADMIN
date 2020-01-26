@@ -145,17 +145,17 @@
     </div>
 </div>
 <script>
-    setInterval(onlineUsers,5000);
+    setInterval(onlineUsers,3000);
     function onlineUsers() {
-        var ajax = new XMLHttpRequest();
+        var ajax_online = new XMLHttpRequest();
         var method = "GET";
         var url = "inc/getData.php?type=online";
         var asynchronous = true;
 
-        ajax.open(method,url,asynchronous);
-        ajax.send();
+        ajax_online.open(method,url,asynchronous);
+        ajax_online.send();
 
-        ajax.onreadystatechange = function () {
+        ajax_online.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200){
                 var data = JSON.parse(this.responseText);
                 var num = data[0].NUMBER;

@@ -106,7 +106,7 @@
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item active" id="filter-table">
                 <a class="nav-link collapsed filters" href="dashboard.php?page=filter">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Filters</span>
@@ -151,7 +151,7 @@
             <!-- Main Content -->
             <div id="content">
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top shadow" style="z-index: 9999;">
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-3 static-top shadow">
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
@@ -363,7 +363,7 @@
     $(document).ready(function(){
         //hide filter option
         if($(window).width() <= 1141){
-            $(".filter-table").hide();
+            $("#filter-table").hide();
         }
 
         /*//show advance filter

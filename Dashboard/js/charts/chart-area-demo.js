@@ -2,26 +2,28 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-/*var ajax = new XMLHttpRequest();
-var method = "GET";
-var url = "inc/getVisitorData.php";
-var asynchronous = true;
+setInterval(getVisitors(),5000);
+function getVisitors() {
+  var ajax_area = new XMLHttpRequest();
+  var method = "GET";
+  var url = "inc/getData.php?type=visitors";
+  var asynchronous = true;
 
-ajax.open(method,url,asynchronous);
-ajax.send();
+  ajax_area.open(method,url,asynchronous);
+  ajax_area.send();
 
-ajax.onreadystatechange = function () {
-  if (this.readyState == 4 && this.status == 200){
-    var data = JSON.parse(this.responseText);
-    var numbers = [];
-    for (x = 0;x < data.length;x++){
-      numbers[x] = data[x].COUNT;
+  ajax_area.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200){
+      var data = JSON.parse(this.responseText);
+      var numbers = [];
+      for (x = 0;x < data.length;x++){
+        numbers[x] = data[x].COUNT;
+      }
+      displayChart(numbers);
     }
-    displayChart(numbers);
   }
-}*/
+}
 
-/*
 function displayChart(data) {
 // Area Chart Example
   var ctx = document.getElementById("myAreaChart");
@@ -117,4 +119,4 @@ function displayChart(data) {
 
 function number_format(number) {
   return number;
-}*/
+}
