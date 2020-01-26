@@ -341,22 +341,6 @@
             $(".login").slideUp(500);
             $(".signin").slideDown(1000);
         });
-
-        $("#logIn_SignIn").click(function(){
-            $(".signin").slideUp(500);
-            $(".login").slideDown(1000);
-        });
-
-        //forgot password section
-        $("#forgot-Pass").click(function(){
-            $(".login").slideUp(500);
-            $(".forgot_pass").slideDown(1000);
-        });
-
-        $("#logIn_ForgotPass").click(function(){
-            $(".forgot_pass").slideUp(500);
-            $(".login").slideDown(1000);
-        });
     });
 </script>
 </html>
