@@ -326,10 +326,10 @@
 	<!--<script src="Login_Section/vendor/animsition/js/animsition.min.js"></script>-->
 	<!--<script src="Login_Section/vendor/bootstrap/js/popper.js"></script>-->
 	<script src="Login_Section/vendor/bootstrap/js/bootstrap.min.js"></script>
-	<!--<script src="Login_Section/vendor/select2/select2.min.js"></script>
+	<script src="Login_Section/vendor/select2/select2.min.js"></script>
 	<script src="Login_Section/vendor/daterangepicker/moment.min.js"></script>
 	<script src="Login_Section/vendor/daterangepicker/daterangepicker.js"></script>
-	<script src="Login_Section/vendor/countdowntime/countdowntime.js"></script>-->
+	<script src="Login_Section/vendor/countdowntime/countdowntime.js"></script>
 	<script src="Login_Section/js/main.js"></script>
 	<script src="Login_Section/js/md5.js"></script>
 </body>
