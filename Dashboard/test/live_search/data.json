@@ -1,0 +1,27 @@
+[
+	{
+		"name":"Nuwan Bandara",
+		"image": "img/avatar2.png",
+		"location":"Bandarawela, UP"
+	},
+	{
+		"name":"Vishwa Dhananjaya",
+		"image": "img/avatar4.png",
+		"location":"Kaluthara, WP"
+	},
+	{
+		"name":"Udith Lakshan",
+		"image": "img/avatar3.png",
+		"location":"Mathara, SP"
+	},
+	{
+		"name":"Miya Kalifa",
+		"image": "img/avatar1.png",
+		"location":"Newyork, LA"
+	},
+	{
+		"name":"Mahesha Perera",
+		"image": "img/avatar1.png",
+		"location":"Horana, WP"
+	}
+]
